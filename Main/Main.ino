@@ -10,7 +10,7 @@
 #define RFID_SS   53
 #define RFID_RST  5
 
-// E-Paper 1.54" (Hardware SPI 共用 51/52，使用獨立 CS 腳位)
+
 #define EP_CS     4
 #define EP_DC     6
 #define EP_RST    12
@@ -20,7 +20,7 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-// 超音波 / RGB / 繼電器
+
 const int trigPin  = 2;
 const int echoPin  = 3;
 const int redPin   = 11;
@@ -32,7 +32,7 @@ const int relayPin = 7;
 MFRC522 rfid(RFID_SS, RFID_RST);
 Adafruit_SSD1306 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-// E-Paper 宣告 (標準 4 參數建構子)
+
 GxEPD2_BW<GxEPD2_154_D67, GxEPD2_154_D67::HEIGHT> epaper(
   GxEPD2_154_D67(EP_CS, EP_DC, EP_RST, EP_BUSY)
 );
