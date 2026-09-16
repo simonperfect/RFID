@@ -5,7 +5,7 @@
 #include <Adafruit_SSD1306.h>
 #include <GxEPD2_BW.h>
 
-// ==================== 腳位設定 ====================
+
 // RFID (Hardware SPI)
 #define RFID_SS   53
 #define RFID_RST  5
@@ -28,7 +28,7 @@ const int greenPin = 10;
 const int bluePin  = 9;
 const int relayPin = 7;
 
-// ==================== 物件初始化 ====================
+
 MFRC522 rfid(RFID_SS, RFID_RST);
 Adafruit_SSD1306 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
@@ -40,7 +40,7 @@ GxEPD2_BW<GxEPD2_154_D67, GxEPD2_154_D67::HEIGHT> epaper(
 // 授權卡號 UID
 byte myCardUID[7] = {0x04, 0x19, 0x37, 0xB2, 0xBA, 0x1A, 0x90};
 
-// ==================== 視覺與顯示輔助函式 ====================
+
 void setRGB(int r, int g, int b) {
   analogWrite(redPin, r);
   analogWrite(greenPin, g);
@@ -109,7 +109,7 @@ void epaperAngry() {
   } while (epaper.nextPage());
 }
 
-// ==================== 初始化 ====================
+
 void setup() {
   Serial.begin(115200);
 
@@ -145,7 +145,6 @@ void setup() {
   showOLED("Status: Ready", "Standby");
 }
 
-// ==================== 主程式邏輯 ====================
 void loop() {
   // 1. 超音波感測
   digitalWrite(trigPin, LOW);
